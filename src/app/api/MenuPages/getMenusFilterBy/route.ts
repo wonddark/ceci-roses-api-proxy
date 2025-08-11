@@ -5,13 +5,7 @@ export async function POST(req: NextRequest) {
     "/api/MenuPages/getMenusFilterBy",
     process.env.API_URL,
   );
-  const proxyRequest = new Request(proxyURL, {
-    body: req.body,
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    // @ts-expect-error Unknown property
-    duplex: "half",
-  });
+  const proxyRequest = new Request(proxyURL, req);
 
   try {
     return fetch(proxyRequest);
