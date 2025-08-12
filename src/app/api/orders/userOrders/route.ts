@@ -1,5 +1,5 @@
 export async function GET(req: Request) {
-  const proxyURL = new URL("/api/userOrders", process.env.API_URL);
+  const proxyURL = new URL("/api/orders/userOrders", process.env.API_URL);
   const proxyRequest = new Request(proxyURL, req);
 
   try {
