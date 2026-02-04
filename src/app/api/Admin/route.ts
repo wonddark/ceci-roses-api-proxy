@@ -4,7 +4,7 @@ export async function POST(req: Request) {
 
   const res = await fetch(proxyRequest);
 
-  res.headers.set("Access-Control-Allow-Origin", "*");
-
-  return res;
+  return new Response(res.body, {
+    headers: { "Access-Control-Allow-Origin": "*" },
+  });
 }
