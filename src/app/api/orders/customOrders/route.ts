@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const query = req.nextUrl.searchParams;
   const proxyURL = new URL(
     `/api/orders/customOrders?${query}`,
